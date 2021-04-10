@@ -1,48 +1,53 @@
-//const delay = (ms) => {
-//return promise = new Promise((resolve) => {
-//setTimeout(() => {
-// resolve(ms)
-//}, ms)
-//})
+//Task 1
 
-//}
+const delay = (ms) => {
+    return (promise = new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(ms)
+        }, ms)
+    }))
+}
 
-//const logger = (time) => console.log(`Resolved after ${time}ms`)
+const logger1 = (time) => console.log(`Resolved after ${time}ms`)
 
 // Вызовы функции для проверки
-//delay(2000).then(logger) // Resolved after 2000ms
-//delay(1000).then(logger) // Resolved after 1000ms
-//delay(1500).then(logger) // Resolved after 1500ms
+delay(2000).then(logger1) // Resolved after 2000ms
+delay(1000).then(logger1) // Resolved after 1000ms
+delay(1500).then(logger1) // Resolved after 1500ms
 
-// const users = [
-//     { name: "Mango", active: true },
-//     { name: "Poly", active: false },
-//     { name: "Ajax", active: true },
-//     { name: "Lux", active: false },
-// ]
+//Task 2
 
-// const toggleUserState = (allUsers, userName) => {
-//     const promise = new Promise((resolve) => {
-//         const updatedUsers = allUsers.map((user) => (user.name === userName ? { ...user, active: !user.active } : user))
-//         resolve(updatedUsers)
-//     })
+const users = [
+    { name: "Mango", active: true },
+    { name: "Poly", active: false },
+    { name: "Ajax", active: true },
+    { name: "Lux", active: false },
+]
 
-//     return promise
-// }
+const toggleUserState = (allUsers, userName) => {
+    const promise = new Promise((resolve) => {
+        const updatedUsers = allUsers.map((user) => (user.name === userName ? { ...user, active: !user.active } : user))
+        resolve(updatedUsers)
+    })
 
-// const logger = (updatedUsers) => console.table(updatedUsers)
+    return promise
+}
 
-// /*
-//  * Сейчас работает так
-//  */
+const logger2 = (updatedUsers) => console.table(updatedUsers)
+
+/*
+ * Сейчас работает так
+ */
 // toggleUserState(users, "Mango", logger)
 // toggleUserState(users, "Lux", logger)
 
 // /*
 //  * Должно работать так
 //  */
-// toggleUserState(users, "Mango").then(logger)
-// toggleUserState(users, "Lux").then(logger)
+toggleUserState(users, "Mango").then(logger2)
+toggleUserState(users, "Lux").then(logger2)
+
+//Task 3
 
 const randomIntegerFromInterval = (min, max) => {
     return Math.floor(Math.random() * (max - min + 1) + min)
